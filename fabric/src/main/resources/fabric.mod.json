@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "riptideunblocker",
+  "version": "${project.version}",
+  "name": "RiptideUnblocker",
+  "description": "Mod that lets you use the Trident Riptide enchantment even when it's not raining.",
+  "authors": [
+    "yedgk"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.yedgk.riptideunblocker.RiptideUnblockerMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "minecraft": "~1.21",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
