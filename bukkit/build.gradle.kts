@@ -5,6 +5,11 @@ java {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT")
-    implementation("com.google.code.gson:gson:2.13.2")
     implementation(project(":shared"))
+}
+
+afterEvaluate {
+    tasks.withType<Jar> {
+        archiveFileName.set("${rootProject.name}-${project.name}-${project.version}.jar")
+    }
 }

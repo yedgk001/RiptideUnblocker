@@ -1,6 +1,6 @@
 package io.yedgk.riptideunblocker.listener;
 
-import io.yedgk.riptideunblocker.configuration.PluginConfiguration;
+import io.yedgk.riptideunblocker.configuration.ConfigurationService;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -12,7 +12,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 
-public record RiptideListener(PluginConfiguration pluginConfiguration) {
+public record RiptideListener(ConfigurationService.PluginConfiguration pluginConfiguration) {
 
     public void register() {
         UseItemCallback.EVENT.register((player, world, hand) -> {

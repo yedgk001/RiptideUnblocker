@@ -25,11 +25,23 @@ public class ConfigurationService {
             }
         } else {
             try (FileReader reader = new FileReader(configFile)) {
-                configuration = GSON.fromJson(reader, PluginConfiguration.class);
+                configuration = GSON.fromJson(reader, ConfigurationService.PluginConfiguration.class);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
         return configuration;
+    }
+
+    public static class PluginConfiguration {
+        public boolean customVelocity;
+        public double velocityValue;
+        public int cooldownInSeconds;
+
+        public PluginConfiguration() {
+            this.customVelocity = true;
+            this.velocityValue = 5.0;
+            this.cooldownInSeconds = 0;
+        }
     }
 }

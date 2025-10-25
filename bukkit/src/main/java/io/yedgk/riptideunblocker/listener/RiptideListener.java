@@ -1,6 +1,6 @@
 package io.yedgk.riptideunblocker.listener;
 
-import io.yedgk.riptideunblocker.configuration.PluginConfiguration;
+import io.yedgk.riptideunblocker.configuration.ConfigurationService;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
@@ -14,9 +14,9 @@ import org.bukkit.util.Vector;
 
 public class RiptideListener implements Listener {
 
-    private final PluginConfiguration pluginConfiguration;
+    private final ConfigurationService.PluginConfiguration pluginConfiguration;
 
-    public RiptideListener(PluginConfiguration pluginConfiguration) {
+    public RiptideListener(ConfigurationService.PluginConfiguration pluginConfiguration) {
         this.pluginConfiguration = pluginConfiguration;
     }
 
