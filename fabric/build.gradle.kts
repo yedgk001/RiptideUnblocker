@@ -4,11 +4,6 @@ plugins {
     id("fabric-loom") version "1.11-SNAPSHOT"
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
-}
-
 dependencies {
     minecraft("com.mojang:minecraft:1.21.10")
     mappings("net.fabricmc:yarn:1.21.10+build.1")

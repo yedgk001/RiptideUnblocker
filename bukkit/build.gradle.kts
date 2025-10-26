@@ -1,10 +1,5 @@
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
     implementation(project(":shared"))
 }
 

@@ -1,6 +1,6 @@
 main: io.yedgk.riptideunblocker.RiptideUnblockerPlugin
 name: RiptideUnblocker
 version: "${project.version}"
-api-version: 1.13
+api-version: 1.21
 author: yedgk
 description: Plugin that lets you use the Trident Riptide enchantment even when it's not raining.

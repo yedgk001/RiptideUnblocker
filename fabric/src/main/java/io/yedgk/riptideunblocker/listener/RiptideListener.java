@@ -12,11 +12,15 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 
+import java.util.Objects;
+
 public record RiptideListener(ConfigurationService.PluginConfiguration pluginConfiguration) {
 
     public void register() {
         UseItemCallback.EVENT.register((player, world, hand) -> {
             if (!(player instanceof ServerPlayerEntity serverPlayer)) return ActionResult.PASS;
+            if (pluginConfiguration.disabledWorlds.contains(Objects.requireNonNull(world.getServer()).getSaveProperties().getLevelName()))
+                return ActionResult.PASS;
             ItemStack item = serverPlayer.getStackInHand(hand);
             if (!item.isOf(Items.TRIDENT)) return ActionResult.PASS;
             int riptideLevel = EnchantmentHelper.getLevel(world.getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.RIPTIDE), item);

@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class ConfigurationService {
 
@@ -37,11 +38,16 @@ public class ConfigurationService {
         public boolean customVelocity;
         public double velocityValue;
         public int cooldownInSeconds;
+        public List<String> disabledWorlds;
 
         public PluginConfiguration() {
             this.customVelocity = true;
             this.velocityValue = 5.0;
             this.cooldownInSeconds = 0;
+            this.disabledWorlds = List.of(
+                    "world_nether",
+                    "world_the_end"
+            );
         }
     }
 }

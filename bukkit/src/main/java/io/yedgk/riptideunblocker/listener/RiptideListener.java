@@ -12,17 +12,12 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
-public class RiptideListener implements Listener {
-
-    private final ConfigurationService.PluginConfiguration pluginConfiguration;
-
-    public RiptideListener(ConfigurationService.PluginConfiguration pluginConfiguration) {
-        this.pluginConfiguration = pluginConfiguration;
-    }
+public record RiptideListener(ConfigurationService.PluginConfiguration pluginConfiguration) implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
+        if (pluginConfiguration.disabledWorlds.contains(player.getWorld().getName())) return;
         if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
 
         ItemStack item = player.getInventory().getItemInMainHand();
@@ -37,32 +32,19 @@ public class RiptideListener implements Listener {
         if (pluginConfiguration.customVelocity) {
             velocityMultiplier = pluginConfiguration.velocityValue;
         } else {
-            switch (riptideLevel) {
-                case 2:
-                    velocityMultiplier = 2.0;
-                    break;
-                case 3:
-                    velocityMultiplier = 2.5;
-                    break;
-                default:
-                    velocityMultiplier = 1.5;
-                    break;
-            }
+            velocityMultiplier = switch (riptideLevel) {
+                case 2 -> 2.0;
+                case 3 -> 2.5;
+                default -> 1.5;
+            };
         }
         Vector direction = player.getLocation().getDirection().normalize().multiply(velocityMultiplier);
         player.setVelocity(direction);
-        Sound sound;
-        switch (riptideLevel) {
-            case 1:
-                sound = Sound.ITEM_TRIDENT_RIPTIDE_1;
-                break;
-            case 2:
-                sound = Sound.ITEM_TRIDENT_RIPTIDE_2;
-                break;
-            default:
-                sound = Sound.ITEM_TRIDENT_RIPTIDE_3;
-                break;
-        }
+        Sound sound = switch (riptideLevel) {
+            case 1 -> Sound.ITEM_TRIDENT_RIPTIDE_1;
+            case 2 -> Sound.ITEM_TRIDENT_RIPTIDE_2;
+            default -> Sound.ITEM_TRIDENT_RIPTIDE_3;
+        };
         player.getWorld().playSound(player.getLocation(), sound, 1f, 1f);
         player.setCooldown(Material.TRIDENT, pluginConfiguration.cooldownInSeconds);
     }
