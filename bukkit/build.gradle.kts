@@ -3,8 +3,6 @@ dependencies {
     implementation(project(":shared"))
 }
 
-afterEvaluate {
-    tasks.withType<Jar> {
-        archiveFileName.set("${rootProject.name}-${project.name}-${project.version}.jar")
-    }
+tasks.withType<Jar> {
+    archiveFileName.set("${rootProject.name}-${project.name}-${project.version}.jar")
 }
