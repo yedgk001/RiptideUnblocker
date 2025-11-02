@@ -3,7 +3,7 @@
   "id": "riptideunblocker",
   "version": "${project.version}",
   "name": "RiptideUnblocker",
-  "description": "Mod that lets you use the Trident Riptide enchantment even when it's not raining.",
+  "description": "${project.description}",
   "authors": [
     "yedgk"
   ],
