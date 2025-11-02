@@ -5,6 +5,7 @@ plugins {
 allprojects {
     group = "io.yedgk.riptideunblocker"
     version = "1.1.0"
+    description = "Addon that allows you to use the Trident’s Riptide enchantment at any time — even without rain or water."
 }
 
 subprojects {
