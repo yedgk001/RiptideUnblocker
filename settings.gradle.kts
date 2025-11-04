@@ -6,4 +6,4 @@ pluginManagement {
 }
 
 rootProject.name = "RiptideUnblocker"
-include("bukkit", ":shared", "fabric")
+include("bukkit", "shared", "fabric")
