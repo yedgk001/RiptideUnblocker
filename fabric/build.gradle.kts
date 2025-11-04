@@ -9,7 +9,7 @@ dependencies {
     mappings("net.fabricmc:yarn:1.21.10+build.1")
     modImplementation("net.fabricmc:fabric-loader:0.17.2")
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.134.1+1.21.10")
-    implementation(project(":shared"))
+    implementation(project("shared"))
 }
 
 afterEvaluate {
